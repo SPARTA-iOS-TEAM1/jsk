@@ -7,21 +7,21 @@
 
 import SwiftUI
 
-enum LodingState {
-    case loding
+enum CurrentState {
+    case loading
     case success
     case login
 }
 
 struct ContentView: View {
     
-    @State private var state: LodingState = .loding
+    @State private var state: CurrentState = .loading
     
     var body: some View {
 
             switch state {
-            case .loding:
-                LodingView()
+            case .loading:
+                SplashScreenView()
                     .onAppear(perform: {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                             withAnimation {
@@ -36,7 +36,7 @@ struct ContentView: View {
             case .login:
                 LogInView()
             default:
-                LodingView()
+                SplashScreenView()
             }
         
     }

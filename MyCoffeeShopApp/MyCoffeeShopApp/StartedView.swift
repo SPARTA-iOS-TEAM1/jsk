@@ -9,7 +9,12 @@ import SwiftUI
 
 struct StartedView: View {
     
-    @Binding var state: LodingState
+    @Binding var state: CurrentState
+    
+    init(state: Binding<CurrentState> = .constant(.loading)) {
+        
+        _state = state
+    }
     
     var body: some View {
         
@@ -51,6 +56,6 @@ struct StartedView: View {
     }
 }
 
-//#Preview {
-//    StartedView(state: <#T##Binding<LodingState>#>)
-//}
+#Preview {
+    StartedView()
+}
