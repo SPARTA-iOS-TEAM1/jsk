@@ -16,12 +16,15 @@ struct LogInTitleView: View {
     
     @Binding var state: CurrentState
     @Binding var loginStatus: LoginStatus
+    @Binding var userInformation: UserInformation
     
-    init(loginStatus: Binding<LoginStatus> = .constant(.loginFailed), state: Binding<CurrentState> = .constant(.loading)) {
+    init(loginStatus: Binding<LoginStatus> = .constant(.loginFailed), state: Binding<CurrentState> = .constant(.loading), userInformation: Binding<UserInformation> = .constant(.init(userInformation: [:]))) {
         
         _loginStatus = loginStatus
         
         _state = state
+        
+        _userInformation = userInformation
     }
     
     @State private var userEmail: String = ""
@@ -30,7 +33,6 @@ struct LogInTitleView: View {
     @State private var showing: Bool = false
     
     var body: some View {
-        
         
         VStack(spacing: 0) {
             
@@ -42,54 +44,10 @@ struct LogInTitleView: View {
                 .frame(height: 120)
                 .opacity(0)
             
-            Text("Email")
-                .padding(.bottom, 5)
-                .fontWeight(.medium)
-                .font(.system(size: 18))
-                .padding(.trailing, 300)
+            TextFieldModi(bindingValue: $userEmail, titleValue: "Email", subTitleValue: "Text your email")
+                .padding(.bottom, 15)
             
-            HStack {
-                TextField("Text your email", text: $userEmail)
-                    .textFieldStyle(.roundedBorder)
-                    .autocapitalization(.none)
-                    .disableAutocorrection(true)
-                
-                Button(action: {
-                    print("Delete")
-                    self.userEmail = ""
-                }) {
-                    if (self.userEmail.count > 0) {
-                        Image(systemName: "multiply.circle.fill")
-                            .foregroundColor(.secondary)
-                            .font(.system(size: 25))
-                    }
-                }
-            }
-            .padding(.bottom, 15)
-            
-            Text("Password")
-                .padding(.bottom, 5)
-                .fontWeight(.medium)
-                .font(.system(size: 18))
-                .padding(.trailing, 270)
-            
-            HStack {
-                SecureField("Text your password", text: $userPassword)
-                    .textFieldStyle(.roundedBorder)
-                    .autocapitalization(.none)
-                    .disableAutocorrection(true)
-                
-                Button(action: {
-                    print("Delete")
-                    self.userPassword = ""
-                }) {
-                    if (self.userPassword.count > 0) {
-                        Image(systemName: "multiply.circle.fill")
-                            .foregroundColor(.secondary)
-                            .font(.system(size: 25))
-                    }
-                }
-            }
+            SecureFieldModi(bindingValue: $userPassword, titleValue: "Password", subTitleValue: "Text your password")
             .padding(.bottom, 5)
             
             HStack(spacing: 0) {

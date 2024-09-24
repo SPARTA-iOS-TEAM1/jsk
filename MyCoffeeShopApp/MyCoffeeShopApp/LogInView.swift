@@ -49,10 +49,7 @@ struct LogInView: View {
                 }
                 .padding(.bottom, 15)
                 
-                Button(action: {
-                    print("Sign Up")
-                    
-                }) {
+                NavigationLink(destination: SignUpView(state: $state)) {
                     ZStack {
                         Rectangle()
                             .frame(width: 320, height: 40)

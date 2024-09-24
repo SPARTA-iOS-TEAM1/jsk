@@ -18,6 +18,10 @@
 		AA8F63802CA135B60082A7ED /* LogInTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F637F2CA135B60082A7ED /* LogInTitleView.swift */; };
 		AA8F63822CA139D50082A7ED /* WebLogInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F63812CA139D50082A7ED /* WebLogInButton.swift */; };
 		AA8F63842CA145FF0082A7ED /* MainTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8F63832CA145FF0082A7ED /* MainTitleView.swift */; };
+		AAA3A0E82CA28634004E70E8 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3A0E72CA28634004E70E8 /* SignUpView.swift */; };
+		AAA3A0EA2CA28828004E70E8 /* TextFieldModi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3A0E92CA28828004E70E8 /* TextFieldModi.swift */; };
+		AAA3A0EC2CA28ED2004E70E8 /* SecureFieldModi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3A0EB2CA28ED2004E70E8 /* SecureFieldModi.swift */; };
+		AAA3A0F02CA2A996004E70E8 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA3A0EF2CA2A996004E70E8 /* UserInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +37,10 @@
 		AA8F637F2CA135B60082A7ED /* LogInTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInTitleView.swift; sourceTree = "<group>"; };
 		AA8F63812CA139D50082A7ED /* WebLogInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLogInButton.swift; sourceTree = "<group>"; };
 		AA8F63832CA145FF0082A7ED /* MainTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitleView.swift; sourceTree = "<group>"; };
+		AAA3A0E72CA28634004E70E8 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		AAA3A0E92CA28828004E70E8 /* TextFieldModi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModi.swift; sourceTree = "<group>"; };
+		AAA3A0EB2CA28ED2004E70E8 /* SecureFieldModi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFieldModi.swift; sourceTree = "<group>"; };
+		AAA3A0EF2CA2A996004E70E8 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,7 @@
 				AA8F63672C92C4890082A7ED /* LogInView.swift */,
 				AA8F637F2CA135B60082A7ED /* LogInTitleView.swift */,
 				AA8F63832CA145FF0082A7ED /* MainTitleView.swift */,
+				AAA3A0E72CA28634004E70E8 /* SignUpView.swift */,
 				AA8F636B2C92DE010082A7ED /* Modifier */,
 				AA8F63592C92B76D0082A7ED /* Assets.xcassets */,
 				AA8F635B2C92B76D0082A7ED /* Preview Content */,
@@ -92,6 +101,9 @@
 			children = (
 				AA8F63692C92C9330082A7ED /* IconButtonModi.swift */,
 				AA8F63812CA139D50082A7ED /* WebLogInButton.swift */,
+				AAA3A0E92CA28828004E70E8 /* TextFieldModi.swift */,
+				AAA3A0EB2CA28ED2004E70E8 /* SecureFieldModi.swift */,
+				AAA3A0EF2CA2A996004E70E8 /* UserInformation.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -172,9 +184,13 @@
 				AA8F63822CA139D50082A7ED /* WebLogInButton.swift in Sources */,
 				AA8F63562C92B76C0082A7ED /* MyCoffeeShopAppApp.swift in Sources */,
 				AA8F63642C92B7BA0082A7ED /* StartedView.swift in Sources */,
+				AAA3A0E82CA28634004E70E8 /* SignUpView.swift in Sources */,
 				AA8F63802CA135B60082A7ED /* LogInTitleView.swift in Sources */,
+				AAA3A0EC2CA28ED2004E70E8 /* SecureFieldModi.swift in Sources */,
 				AA8F63662C92BEBB0082A7ED /* SplashScreenView.swift in Sources */,
+				AAA3A0F02CA2A996004E70E8 /* UserInformation.swift in Sources */,
 				AA8F636A2C92C9340082A7ED /* IconButtonModi.swift in Sources */,
+				AAA3A0EA2CA28828004E70E8 /* TextFieldModi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
