@@ -49,7 +49,7 @@ struct LogInView: View {
                 }
                 .padding(.bottom, 15)
                 
-                NavigationLink(destination: SignUpView(state: $state)) {
+                NavigationLink(destination: SignUpView(loginStatus: $loginStatus, state: $state)) {
                     ZStack {
                         Rectangle()
                             .frame(width: 320, height: 40)

@@ -17,8 +17,11 @@ enum AlertError: String {
 struct SignUpView: View {
     
     @Binding var state: CurrentState
+    @Binding var loginStatus: LoginStatus
     
-    init(state: Binding<CurrentState> = .constant(.loading)) {
+    init(loginStatus: Binding<LoginStatus> = .constant(.loginFailed), state: Binding<CurrentState> = .constant(.loading)) {
+        
+        _loginStatus = loginStatus
         
         _state = state
     }
@@ -74,6 +77,7 @@ struct SignUpView: View {
                     self.userInformation.userInformation[self.signUpUserEmail] = self.signUpUserPassword
                     
                     withAnimation {
+                        self.loginStatus = .signUp
                         self.state = .loading
                     }
                     

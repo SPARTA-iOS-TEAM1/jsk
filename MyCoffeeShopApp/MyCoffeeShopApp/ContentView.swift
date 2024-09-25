@@ -10,6 +10,7 @@ import SwiftUI
 enum LoginStatus {
     case loginSucces
     case loginFailed
+    case signUp
 }
 
 enum CurrentState {
@@ -34,6 +35,8 @@ struct ContentView: View {
                             withAnimation {
                                 if self.loginStatus == .loginSucces {
                                     self.state = .main
+                                } else if self.loginStatus == .signUp {
+                                    self.state = .login
                                 } else {
                                     self.state = .success
                                 }
