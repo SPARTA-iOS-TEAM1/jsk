@@ -16,15 +16,12 @@ struct LogInTitleView: View {
     
     @Binding var state: CurrentState
     @Binding var loginStatus: LoginStatus
-    @Binding var userInformation: UserInformation
     
-    init(loginStatus: Binding<LoginStatus> = .constant(.loginFailed), state: Binding<CurrentState> = .constant(.loading), userInformation: Binding<UserInformation> = .constant(.init(userInformation: [:]))) {
+    init(loginStatus: Binding<LoginStatus> = .constant(.loginFailed), state: Binding<CurrentState> = .constant(.loading)) {
         
         _loginStatus = loginStatus
         
         _state = state
-        
-        _userInformation = userInformation
     }
     
     @State private var userEmail: String = ""
@@ -78,15 +75,16 @@ struct LogInTitleView: View {
             
             Button(action: {
                 print("Log In")
-                if self.userEmail.count == 0 || self.userPassword.count == 0 {
-                    self.showing = true
-                } else {
-                    withAnimation {
+                let savedUserEmail = UserDefaults.standard.string(forKey: "userEmail")
+                let savedUserPassword = UserDefaults.standard.string(forKey: "userPassword")
+                guard savedUserEmail == self.userEmail && savedUserPassword == self.userPassword else {
+                    return showing = true
+                }
+                withAnimation {
                         self.loginStatus = .loginSucces
                         self.state = .loading
                         // 로그인 성공
                     }
-                }
                 
             }, label: {
                 Text("Log In")
@@ -101,11 +99,11 @@ struct LogInTitleView: View {
                 Button("OK", role: .cancel) {
                     if checkBox == .nonCheck {
                         self.userEmail = ""
+                        self.userPassword = ""
                     } else {
+                        self.userPassword = ""
                         return
                     }
-                    
-                    self.userPassword = ""
                 }
             }
             .padding(.bottom, 30)

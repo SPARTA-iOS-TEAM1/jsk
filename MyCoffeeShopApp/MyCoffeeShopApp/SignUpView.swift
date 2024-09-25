@@ -11,6 +11,7 @@ enum AlertError: String {
     case confirmError = "Password does not match."
     case blankError = "There are empty values."
     case duplicateError = "This is a duplicate email."
+    case emailError = "The email format is invalid."
     case noError
 }
 
@@ -32,8 +33,6 @@ struct SignUpView: View {
     
     @State private var errorShowing: Bool = false
     @State private var error: AlertError = .noError
-    
-    @State var userInformation = UserInformation(userInformation: [:])
     
     var body: some View {
         
@@ -66,15 +65,17 @@ struct SignUpView: View {
                     return
                 }
                 
-                guard (self.userInformation.userInformation[self.signUpUserEmail]) == nil else {
-                    self.error = .duplicateError
+                guard isValidEmail(id: self.signUpUserEmail) else {
+                    self.signUpUserEmail = ""
                     self.errorShowing = true
+                    self.error = .emailError
                     return
                 }
                 
                 if self.signUpUserEmail.count > 0 && self.signUpUserPassword.count > 0 && self.confirmUserPassword.count > 0 {
-                    
-                    self.userInformation.userInformation[self.signUpUserEmail] = self.signUpUserPassword
+
+                    UserDefaults.standard.set(self.signUpUserEmail, forKey: "userEmail")
+                    UserDefaults.standard.set(self.signUpUserPassword, forKey: "userPassword")
                     
                     withAnimation {
                         self.loginStatus = .signUp
@@ -109,6 +110,12 @@ struct SignUpView: View {
         .padding(.horizontal, 20)
         
     }
+}
+
+func isValidEmail(id: String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+    let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+    return emailTest.evaluate(with: id)
 }
 
 #Preview {
